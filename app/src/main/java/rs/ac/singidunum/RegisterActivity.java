@@ -6,20 +6,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-public class LoginActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
-    private void openRegisterActivity() {
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
+    private void goBackToLogin() {
+
+        finish();
+
     }
 
     private void initUI() {
 
-        Button loginButton = findViewById(R.id.loginButton);
         Button registerButton = findViewById(R.id.registerButton);
+        Button backButton = findViewById(R.id.backButton);
 
-        registerButton.setOnClickListener((view) -> {
-            openRegisterActivity();
+        backButton.setOnClickListener((view) -> {
+            goBackToLogin();
         });
 
     }
@@ -27,8 +28,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_login);
 
         initUI();
     }

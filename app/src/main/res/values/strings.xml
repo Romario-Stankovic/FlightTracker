@@ -1,10 +1,28 @@
 <resources>
     <string name="app_name">Final Exam</string>
+
     <string name="login_label_login">LOGIN</string>
     <string name="login_label_username">Username: </string>
-    <string name="login_hint_username">Username</string>
+    <string name="login_hint_username">username</string>
     <string name="login_label_password">Password: </string>
-    <string name="login_hint_password">Password</string>
+    <string name="login_hint_password">password</string>
     <string name="login_button_login">Login</string>
     <string name="login_button_register">Register</string>
+
+    <string name="register_label_name">Name:</string>
+    <string name="register_hint_name">John</string>
+    <string name="register_label_last_name">Last Name:</string>
+    <string name="register_hint_last_name">Doe</string>
+    <string name="register_label_register">REGISTER</string>
+    <string name="register_label_username">Username:</string>
+    <string name="register_hint_username">username</string>
+    <string name="register_label_password">Password</string>
+    <string name="register_hint_password">password</string>
+    <string name="register_label_date_of_birth">Date of Birth:</string>
+    <string name="register_label_gender">Gender:</string>
+    <string name="register_radio_male">Male</string>
+    <string name="register_radio_female">Female</string>
+    <string name="register_button_register">Register</string>
+    <string name="register_button_back">Back</string>
+
 </resources>
