@@ -1,10 +1,11 @@
-package rs.ac.singidunum;
+package rs.ac.singidunum.madexam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+
+import rs.ac.singidunum.madexam.R;
 
 public class MainActivity extends AppCompatActivity {
 

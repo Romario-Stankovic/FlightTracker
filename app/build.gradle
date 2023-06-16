@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'rs.ac.singidunum'
+    namespace 'rs.ac.singidunum.madexam'
     compileSdk 33
 
     defaultConfig {
-        applicationId "rs.ac.singidunum"
+        applicationId "rs.ac.singidunum.madexam"
         minSdk 21
         targetSdk 33
         versionCode 1

@@ -1,10 +1,12 @@
-package rs.ac.singidunum;
+package rs.ac.singidunum.madexam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
+import rs.ac.singidunum.madexam.R;
 
 public class LoginActivity extends AppCompatActivity {
 

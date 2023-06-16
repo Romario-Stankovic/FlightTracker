@@ -1,4 +1,4 @@
-package rs.ac.singidunum;
+package rs.ac.singidunum.madexam;
 
 import org.junit.Test;
 
