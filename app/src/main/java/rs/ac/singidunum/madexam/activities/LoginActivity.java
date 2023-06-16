@@ -1,4 +1,4 @@
-package rs.ac.singidunum.madexam;
+package rs.ac.singidunum.madexam.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,15 +10,18 @@ import rs.ac.singidunum.madexam.R;
 
 public class LoginActivity extends AppCompatActivity {
 
+    Button loginButton;
+    Button registerButton;
+
     private void openRegisterActivity() {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
 
-    private void initUI() {
+    private void init() {
 
-        Button loginButton = findViewById(R.id.loginButton);
-        Button registerButton = findViewById(R.id.registerButton);
+        loginButton = findViewById(R.id.loginButton);
+        registerButton = findViewById(R.id.registerButton);
 
         registerButton.setOnClickListener((view) -> {
             openRegisterActivity();
@@ -32,6 +35,6 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
 
-        initUI();
+        init();
     }
 }
