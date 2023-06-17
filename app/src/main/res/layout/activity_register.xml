@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".madexam.RegisterActivity">
+    tools:context=".activities.RegisterActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
@@ -97,6 +97,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/register_label_date_of_birth" />
+
+                <EditText
+                    android:id="@+id/dateOfBirthEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:ems="10"
+                    android:hint="@string/register_hint_date_of_birth"
+                    android:inputType="date" />
 
                 <TextView
                     android:id="@+id/genderText"
