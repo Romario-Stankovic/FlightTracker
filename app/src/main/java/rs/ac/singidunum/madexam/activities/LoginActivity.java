@@ -2,7 +2,6 @@ package rs.ac.singidunum.madexam.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,6 +23,13 @@ public class LoginActivity extends AppCompatActivity {
     private void openRegisterActivity() {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
+    }
+
+    private void openMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
+        startActivity(intent);
+        this.finish();
     }
 
     private void login() {
@@ -53,6 +59,8 @@ public class LoginActivity extends AppCompatActivity {
         editor.apply();
 
         Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+
+        openMainActivity();
 
     }
 
