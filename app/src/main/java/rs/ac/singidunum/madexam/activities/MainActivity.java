@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     FlightHandler flightHandler = new FlightHandler();
     List<FlightModel> flights = new ArrayList<>();
-    FlightAdapter adapter = new FlightAdapter(this, flights);
+    FlightAdapter adapter = new FlightAdapter(this);
 
     AsyncTask task = new AsyncTask() {
         @Override
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setOnMenuItemClickListener((menuItem) -> {
             if(menuItem.getItemId() == R.id.profileMenuItem) {
-
+                //TODO: Implement logic here
             }
 
             if(menuItem.getItemId() == R.id.logoutMenuItem) {
