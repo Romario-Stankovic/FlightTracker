@@ -11,7 +11,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import rs.ac.singidunum.madexam.R;
@@ -23,20 +22,21 @@ import rs.ac.singidunum.madexam.api.models.Pageable;
 public class MainActivity extends AppCompatActivity {
 
     FlightHandler flightHandler = new FlightHandler();
-    List<FlightModel> flights = new ArrayList<>();
     FlightAdapter adapter = new FlightAdapter(this);
+    int page = 1;
+    int size = 10;
 
     AsyncTask task = new AsyncTask() {
         @Override
         protected List<FlightModel> doInBackground(Object[] objects) {
-            Pageable<FlightModel> response = flightHandler.getUpcomingFlights(1, 10);
-            flights = response.getContent();
+            Pageable<FlightModel> response = flightHandler.getUpcomingFlights(page - 1, size);
+            List<FlightModel> flights = response.getContent();
             return flights;
         }
 
         @Override
         protected void onPostExecute(Object o) {
-            adapter.updateData((List<FlightModel>) o);
+            adapter.setData((List<FlightModel>) o);
         }
 
     };
@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         });
-
 
         RecyclerView flightRecycleView = findViewById(R.id.fligthRecycleView);
         flightRecycleView.setAdapter(adapter);

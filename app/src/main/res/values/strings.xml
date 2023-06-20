@@ -29,4 +29,12 @@
     <string name="menu_profile">Profile</string>
     <string name="menu_logout">Logout</string>
 
+    <string name="flight_flight_number_label">Flight Number: </string>
+    <string name="flight_destination_label">Destination: </string>
+    <string name="flight_scheduled_at_label">Scheduled At: </string>
+    <string name="flight_connected_label">Connected Flight: </string>
+    <string name="flight_plane_model_label">Plane Model: </string>
+    <string name="flight_gate_label">Gate: </string>
+    <string name="flight_terminal_label">Terminal: </string>
+
 </resources>
