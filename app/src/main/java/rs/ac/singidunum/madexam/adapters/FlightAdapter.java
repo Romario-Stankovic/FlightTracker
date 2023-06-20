@@ -112,4 +112,9 @@ public class FlightAdapter extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
+    public void addData(List<FlightModel> flights) {
+        this.flights.addAll(flights);
+        notifyDataSetChanged();
+    }
+
 }
