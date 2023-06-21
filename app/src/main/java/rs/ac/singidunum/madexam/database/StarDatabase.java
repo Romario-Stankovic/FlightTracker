@@ -33,7 +33,7 @@ public class StarDatabase extends DatabaseHelper{
 
     }
 
-    public StarModel getStarsForUserAndFlight(int userId, int flightId) {
+    public StarModel getStarForUserAndFlight(int userId, int flightId) {
 
         String query = "SELECT * FROM star WHERE user_id = ? AND flight_id = ?";
 

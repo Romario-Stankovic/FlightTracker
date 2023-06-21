@@ -1,10 +1,7 @@
 package rs.ac.singidunum.madexam.adapters;
 
-import static android.content.Context.MODE_PRIVATE;
-
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +26,6 @@ import rs.ac.singidunum.madexam.activities.FlightActivity;
 import rs.ac.singidunum.madexam.api.models.FlightModel;
 import rs.ac.singidunum.madexam.database.StarDatabase;
 import rs.ac.singidunum.madexam.database.UserDatabase;
-import rs.ac.singidunum.madexam.database.models.StarModel;
 
 public class FlightAdapter extends RecyclerView.Adapter {
 
@@ -38,23 +34,28 @@ public class FlightAdapter extends RecyclerView.Adapter {
     StarDatabase starHelper;
     UserDatabase userHelper;
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-
+    // Class that stores a reference to the fragment
+    public static class FlightItemViewHolder extends RecyclerView.ViewHolder {
+        // Reference to the base view
         View view;
+        // Reference to the banner image
+        ImageView bannerIconImage;
+        // Reference to the flight number text
         TextView flightNumberTextView;
+        // Reference to the destination text
         TextView destinationTextView;
-        ImageView iconImageView;
+        // Reference to the details text
         ImageButton detailsImageButton;
-        ImageButton startImageButton;
 
-        public MyViewHolder(@NotNull View itemView) {
+        // Constructor
+        public FlightItemViewHolder(@NotNull View itemView) {
             super(itemView);
+            // Set the values
             view = itemView;
             flightNumberTextView = itemView.findViewById(R.id.flightNumberTextView);
             destinationTextView = itemView.findViewById(R.id.destinationTextView);
-            iconImageView = itemView.findViewById(R.id.iconImageView);
+            bannerIconImage = itemView.findViewById(R.id.iconImageView);
             detailsImageButton = itemView.findViewById(R.id.detailsImageButton);
-            startImageButton = itemView.findViewById(R.id.starImageButton);
         }
 
     }
@@ -70,19 +71,25 @@ public class FlightAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.fragment_flight, parent, false);
-        return new MyViewHolder(v);
+        return new FlightItemViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
         FlightModel flight = flights.get(position);
-        MyViewHolder hldr = (MyViewHolder) holder;
+        FlightItemViewHolder item = (FlightItemViewHolder) holder;
 
-        hldr.flightNumberTextView.setText(flight.getFlightNumber());
-        hldr.destinationTextView.setText(flight.getDestination());
+        String imageName = "/" + flight.getDestination().split(" ")[0].toLowerCase() + ".jpg";
+        Glide.with(item.view)
+                .load(Environment.DESTINATION_IMAGE_URL + imageName)
+                .placeholder(R.drawable.flight_placeholder)
+                .into(item.bannerIconImage);
 
-        hldr.detailsImageButton.setOnClickListener(v -> {
+        item.flightNumberTextView.setText(flight.getFlightNumber());
+        item.destinationTextView.setText(flight.getDestination());
+
+        item.detailsImageButton.setOnClickListener(v -> {
 
             Intent intent = new Intent(context, FlightActivity.class);
             Bundle extras = new Bundle();
@@ -103,46 +110,11 @@ public class FlightAdapter extends RecyclerView.Adapter {
             context.startActivity(intent);
 
         });
-
-        SharedPreferences prefs = context.getApplicationContext().getSharedPreferences("preferences", MODE_PRIVATE);
-        int userId = prefs.getInt("userId", -1);
-
-        hldr.startImageButton.setOnClickListener(v -> {
-
-            StarModel star = starHelper.getStarsForUserAndFlight(userId, flight.getId());
-            if(star == null) {
-                boolean result = starHelper.createStar(userId, flight.getId());
-                if(result == true) {
-                    hldr.startImageButton.setImageResource(R.drawable.star_filled);
-                }
-            } else {
-                boolean result = starHelper.deleteStar(star.getId());
-                if (result == true) {
-                    hldr.startImageButton.setImageResource(R.drawable.star_outlined);
-                }
-            }
-        });
-
-        boolean isStarred = starHelper.getStarsForUserAndFlight(userId, flight.getId()) != null;
-
-        hldr.startImageButton.setImageResource(isStarred ? R.drawable.star_filled : R.drawable.star_outlined);
-
-        String imageName = "/" + flight.getDestination().split(" ")[0].toLowerCase() + ".jpg";
-        Glide.with(hldr.view)
-                .load(Environment.DESTINATION_IMAGE_URL + imageName)
-                .placeholder(R.drawable.flight_placeholder)
-                .into(hldr.iconImageView);
     }
 
     @Override
     public int getItemCount() {
         return flights.size();
-    }
-
-    public void setData(List<FlightModel> flights) {
-        this.flights.clear();
-        this.flights.addAll(flights);
-        notifyDataSetChanged();
     }
 
     public void addData(List<FlightModel> flights) {

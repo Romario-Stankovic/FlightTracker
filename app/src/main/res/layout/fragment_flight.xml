@@ -50,12 +50,6 @@
                 android:src="@drawable/details"
                 app:tint="?android:attr/textColorPrimary" />
 
-            <ImageButton
-                android:id="@+id/starImageButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/star_outlined"
-                app:tint="?android:attr/textColorPrimary" />
         </LinearLayout>
 
     </LinearLayout>
