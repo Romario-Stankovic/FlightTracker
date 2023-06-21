@@ -47,14 +47,14 @@
                 android:id="@+id/detailsImageButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/baseline_open_in_new_24"
+                android:src="@drawable/details"
                 app:tint="?android:attr/textColorPrimary" />
 
             <ImageButton
                 android:id="@+id/starImageButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/round_star_outline_24"
+                android:src="@drawable/star_outlined"
                 app:tint="?android:attr/textColorPrimary" />
         </LinearLayout>
 

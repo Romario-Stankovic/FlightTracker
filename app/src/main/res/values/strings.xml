@@ -26,6 +26,7 @@
     <string name="register_button_register">Register</string>
     <string name="register_button_back">Back</string>
 
+    <string name="menu_search">Search</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_logout">Logout</string>
 

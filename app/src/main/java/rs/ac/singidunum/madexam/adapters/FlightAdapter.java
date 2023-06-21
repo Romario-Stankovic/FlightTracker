@@ -117,4 +117,8 @@ public class FlightAdapter extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
+    public void clear() {
+        this.flights.clear();
+    }
+
 }
