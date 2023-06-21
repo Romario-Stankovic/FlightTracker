@@ -170,6 +170,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 destination = newText;
+                if(destination.trim().length() == 0) {
+                    resetPagination();
+                }
                 return true;
             }
 
