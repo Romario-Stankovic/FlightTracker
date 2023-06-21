@@ -30,7 +30,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "gender TEXT" +
                 ");";
 
+        String createStarTable = "CREATE TABLE star (" +
+                "star_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "user_id INTEGER, " +
+                "flight_id INTEGER" +
+                ");";
+
         sqLiteDatabase.execSQL(createUserTable);
+        sqLiteDatabase.execSQL(createStarTable);
 
     }
 

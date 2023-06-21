@@ -41,13 +41,12 @@ public class UserDatabase extends DatabaseHelper{
         String query = "SELECT * FROM user WHERE user_id = ?";
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = null;
 
         if(db == null) {
             return null;
         }
 
-        cursor = db.rawQuery(query, new String[]{""+id});
+        Cursor cursor = db.rawQuery(query, new String[]{""+id});
 
         if(cursor == null || cursor.getCount() == 0) {
             return null;

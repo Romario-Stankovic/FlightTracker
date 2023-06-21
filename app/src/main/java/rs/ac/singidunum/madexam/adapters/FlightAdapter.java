@@ -1,7 +1,10 @@
 package rs.ac.singidunum.madexam.adapters;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,11 +27,16 @@ import rs.ac.singidunum.madexam.Environment;
 import rs.ac.singidunum.madexam.R;
 import rs.ac.singidunum.madexam.activities.FlightActivity;
 import rs.ac.singidunum.madexam.api.models.FlightModel;
+import rs.ac.singidunum.madexam.database.StarDatabase;
+import rs.ac.singidunum.madexam.database.UserDatabase;
+import rs.ac.singidunum.madexam.database.models.StarModel;
 
 public class FlightAdapter extends RecyclerView.Adapter {
 
     Context context;
     List<FlightModel> flights;
+    StarDatabase starHelper;
+    UserDatabase userHelper;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -54,6 +62,8 @@ public class FlightAdapter extends RecyclerView.Adapter {
     public FlightAdapter(Context context) {
         this.context = context;
         this.flights = new ArrayList<>();
+        this.starHelper = new StarDatabase(context);
+        this.userHelper = new UserDatabase(context);
     }
 
     @NonNull
@@ -93,6 +103,29 @@ public class FlightAdapter extends RecyclerView.Adapter {
             context.startActivity(intent);
 
         });
+
+        SharedPreferences prefs = context.getApplicationContext().getSharedPreferences("preferences", MODE_PRIVATE);
+        int userId = prefs.getInt("userId", -1);
+
+        hldr.startImageButton.setOnClickListener(v -> {
+
+            StarModel star = starHelper.getStarsForUserAndFlight(userId, flight.getId());
+            if(star == null) {
+                boolean result = starHelper.createStar(userId, flight.getId());
+                if(result == true) {
+                    hldr.startImageButton.setImageResource(R.drawable.star_filled);
+                }
+            } else {
+                boolean result = starHelper.deleteStar(star.getId());
+                if (result == true) {
+                    hldr.startImageButton.setImageResource(R.drawable.star_outlined);
+                }
+            }
+        });
+
+        boolean isStarred = starHelper.getStarsForUserAndFlight(userId, flight.getId()) != null;
+
+        hldr.startImageButton.setImageResource(isStarred ? R.drawable.star_filled : R.drawable.star_outlined);
 
         String imageName = "/" + flight.getDestination().split(" ")[0].toLowerCase() + ".jpg";
         Glide.with(hldr.view)
