@@ -60,7 +60,8 @@ public class UserDatabase extends DatabaseHelper{
         user.setLastName(cursor.getString(2));
         user.setUsername(cursor.getString(3));
         user.setPassword(cursor.getString(4));
-        user.setGender(cursor.getString(5));
+        user.setDateOfBirth(cursor.getString(5));
+        user.setGender(cursor.getString(6));
 
         return user;
 
@@ -90,7 +91,8 @@ public class UserDatabase extends DatabaseHelper{
         user.setLastName(cursor.getString(2));
         user.setUsername(cursor.getString(3));
         user.setPassword(cursor.getString(4));
-        user.setGender(cursor.getString(5));
+        user.setDateOfBirth(cursor.getString(5));
+        user.setGender(cursor.getString(6));
 
         return user;
 

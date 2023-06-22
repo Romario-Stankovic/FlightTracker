@@ -80,21 +80,11 @@ public class FlightAdapter extends RecyclerView.Adapter {
         FlightModel flight = flights.get(position);
         FlightItemViewHolder item = (FlightItemViewHolder) holder;
 
-        String imageName = "/" + flight.getDestination().split(" ")[0].toLowerCase() + ".jpg";
-        Glide.with(item.view)
-                .load(Environment.DESTINATION_IMAGE_URL + imageName)
-                .placeholder(R.drawable.flight_placeholder)
-                .into(item.bannerIconImage);
-
-        item.flightNumberTextView.setText(flight.getFlightNumber());
-        item.destinationTextView.setText(flight.getDestination());
-
-        item.detailsImageButton.setOnClickListener(v -> {
-
+        View.OnClickListener clickListener = (view) -> {
             Intent intent = new Intent(context, FlightActivity.class);
             Bundle extras = new Bundle();
 
-            extras.putInt("id", flight.getId());
+            extras.putInt("flightId", flight.getId());
             extras.putString("flightKey", flight.getFlightKey());
             extras.putString("flightNumber", flight.getFlightNumber());
             extras.putString("destination", flight.getDestination());
@@ -108,8 +98,20 @@ public class FlightAdapter extends RecyclerView.Adapter {
 
             intent.putExtras(extras);
             context.startActivity(intent);
+        };
 
-        });
+        item.view.setOnClickListener(clickListener);
+
+        String imageName = "/" + flight.getDestination().split(" ")[0].toLowerCase() + ".jpg";
+        Glide.with(item.view)
+                .load(Environment.DESTINATION_IMAGE_URL + imageName)
+                .placeholder(R.drawable.flight_placeholder)
+                .into(item.bannerIconImage);
+
+        item.flightNumberTextView.setText(flight.getFlightNumber());
+        item.destinationTextView.setText(flight.getDestination());
+
+        item.detailsImageButton.setOnClickListener(clickListener);
     }
 
     @Override

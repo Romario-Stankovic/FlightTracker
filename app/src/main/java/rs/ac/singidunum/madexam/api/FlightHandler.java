@@ -4,7 +4,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.util.List;
 
+import okhttp3.MediaType;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 import rs.ac.singidunum.madexam.Environment;
 import rs.ac.singidunum.madexam.api.models.FlightModel;
@@ -45,6 +47,30 @@ public class FlightHandler extends Handler {
 
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    public List<FlightModel> getFlightsByIDs(List<Integer> ids) {
+
+        try {
+
+            String url = Environment.FLIGHT_API_URL + "/api/flight/list";
+            String json = this.mapper.writeValueAsString(ids);
+
+            RequestBody body = RequestBody.create(MediaType.parse("application/json"), json);
+
+            Request request = new Request.Builder().url(url)
+                    .post(body).build();
+
+            Response response = client.newCall(request).execute();
+
+            List<FlightModel> result = mapper.readValue(response.body().string(), new TypeReference<List<FlightModel>>() {});
+
+            return result;
+
+        } catch (Exception e) {
             return null;
         }
 

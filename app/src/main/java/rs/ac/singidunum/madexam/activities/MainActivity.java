@@ -94,6 +94,11 @@ public class MainActivity extends AppCompatActivity {
         this.finish();
     }
 
+    private void openProfileActivity() {
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
     private void logout() {
 
         SharedPreferences prefs = getApplicationContext().getSharedPreferences("preferences", MODE_PRIVATE);
@@ -114,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
         if(paginate != null) {
             paginate.unbind();
         }
-
 
         adapter.clear();
         page = 0;
@@ -154,6 +158,11 @@ public class MainActivity extends AppCompatActivity {
         MenuItem logoutMenuItem = menu.findItem(R.id.logoutMenuItem);
         MenuItem profileMenuItem = menu.findItem(R.id.profileMenuItem);
         SearchView searchView = (SearchView) menu.findItem(R.id.searchView).getActionView();
+
+        profileMenuItem.setOnMenuItemClickListener((item) -> {
+            openProfileActivity();
+            return true;
+        });
 
         logoutMenuItem.setOnMenuItemClickListener((item) -> {
             logout();

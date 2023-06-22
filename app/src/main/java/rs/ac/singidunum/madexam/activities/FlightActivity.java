@@ -28,7 +28,7 @@ public class FlightActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
 
-        int flightId = extras.getInt("id");
+        int flightId = extras.getInt("flightId");
         String flightKey = extras.getString("flightKey");
         String flightNumber = extras.getString("flightNumber");
         String destination = extras.getString("destination");
@@ -39,7 +39,6 @@ public class FlightActivity extends AppCompatActivity {
         String terminal = extras.getString("terminal");
 
         getSupportActionBar().setTitle(flightNumber);
-
         TextView flightKeyTextView = findViewById(R.id.flight_flightKeyTextView);
         TextView destinationTextView = findViewById(R.id.flight_destinationTextView);
         TextView scheduledAtTextView = findViewById(R.id.flight_scheduledAtTextView);

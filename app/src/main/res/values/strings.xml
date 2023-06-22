@@ -38,4 +38,9 @@
     <string name="flight_gate_label">Gate: </string>
     <string name="flight_terminal_label">Terminal: </string>
 
+    <string name="profile_username_label">Username: </string>
+    <string name="profile_date_of_birth_label">Date of Birth: </string>
+    <string name="profile_gender_label">Gender: </string>
+    <string name="profile_saved_flights_label">Saved Flights</string>
+
 </resources>
