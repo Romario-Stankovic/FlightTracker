@@ -12,12 +12,10 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.Calendar;
 import java.util.Locale;
 
 import rs.ac.singidunum.madexam.R;
-import rs.ac.singidunum.madexam.database.DatabaseHelper;
 import rs.ac.singidunum.madexam.database.UserDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -32,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button backButton;
 
     Calendar dateOfBirthCalendar = Calendar.getInstance();
+    UserDatabase userDatabase;
 
     private void goBack() {
         finish();
@@ -39,19 +38,22 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void register() {
 
-        UserDatabase db = new UserDatabase(this);
-
+        // Get values from the fields
         String name = nameEditText.getText().toString().trim();
         String lastName = lastNameEditText.getText().toString().trim();
         String username = usernameEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
+
+        // Convert the date to a ISO date format
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         String dateOfBirth = format.format(dateOfBirthCalendar.getTime());
         String gender = ((RadioButton)findViewById(genderRadioGroup.getCheckedRadioButtonId())).getText().toString().trim();
 
-        boolean result = db.createUser(name, lastName, username, password, dateOfBirth, gender);
+        // Save the user to the database
+        boolean result = userDatabase.createUser(name, lastName, username, password, dateOfBirth, gender);
 
-        if(result == false) {
+        // Show appropriate message based on the save result
+        if(!result) {
             Toast.makeText(this, "Failed to register", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
@@ -62,35 +64,46 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void init() {
 
-        nameEditText = findViewById(R.id.nameEditText);
-        lastNameEditText = findViewById(R.id.lastNameEditText);
-        usernameEditText = findViewById(R.id.usernameEditText);
-        passwordEditText = findViewById(R.id.passwordEditText);
-        dateOfBirthEditText = findViewById(R.id.dateOfBirthEditText);
-        genderRadioGroup = findViewById(R.id.genderRadioGroup);
+        // Get user database
+        userDatabase = new UserDatabase(this);
 
-        registerButton = findViewById(R.id.registerButton);
-        backButton = findViewById(R.id.backButton);
+        // Get references to the View
+        nameEditText = findViewById(R.id.a_register_name_editText);
+        lastNameEditText = findViewById(R.id.a_register_lastName_editText);
+        usernameEditText = findViewById(R.id.a_register_username_editText);
+        passwordEditText = findViewById(R.id.a_register_password_editText);
+        dateOfBirthEditText = findViewById(R.id.a_register_dateOfBirth_editText);
+        genderRadioGroup = findViewById(R.id.a_register_gender_radioGroup);
 
+        registerButton = findViewById(R.id.a_register_register_button);
+        backButton = findViewById(R.id.a_register_back_button);
+
+        // Create a new datePicker listener
         DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                // Get the values from the dataPicker and set them on the Calender instance
                 dateOfBirthCalendar.set(Calendar.YEAR, year);
                 dateOfBirthCalendar.set(Calendar.MONTH, month);
                 dateOfBirthCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                // Format the date
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+                // Set the text in the date field
                 dateOfBirthEditText.setText(dateFormat.format(dateOfBirthCalendar.getTime()));
             }
         };
 
+        // Add onClick listener to the date of birth field
         dateOfBirthEditText.setOnClickListener((view) -> {
             new DatePickerDialog(this, onDateSetListener, dateOfBirthCalendar.get(Calendar.YEAR), dateOfBirthCalendar.get(Calendar.MONTH), dateOfBirthCalendar.get(Calendar.DAY_OF_MONTH)).show();
         });
 
+        // Add onClick listener to the register button
         registerButton.setOnClickListener((view) -> {
             register();
         });
 
+        // Add onClick listener to the login button
         backButton.setOnClickListener((view) -> {
             goBack();
         });
@@ -103,6 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         getSupportActionBar().hide();
 
+        // Initialize the activity
         init();
     }
 }

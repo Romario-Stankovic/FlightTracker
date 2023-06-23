@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class StarModel {
+public class UserFlight {
     private int id;
     private int userId;
     private int flightId;

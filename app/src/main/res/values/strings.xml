@@ -1,46 +1,56 @@
 <resources>
     <string name="app_name">Final Exam</string>
 
-    <string name="login_label_login">LOGIN</string>
-    <string name="login_label_username">Username: </string>
-    <string name="login_hint_username">username</string>
-    <string name="login_label_password">Password: </string>
-    <string name="login_hint_password">password</string>
-    <string name="login_button_login">Login</string>
-    <string name="login_button_register">Register</string>
+    <!-- Login Activity -->
+    <string name="a_login_title_textView_text">LOGIN</string>
+    <string name="a_login_username_textView_text">Username: </string>
+    <string name="a_login_username_editText_hint">username</string>
+    <string name="a_login_password_textView_text">Password: </string>
+    <string name="a_login_password_editText_hint">password</string>
+    <string name="a_login_login_button_text">Login</string>
+    <string name="a_login_register_button_text">Register</string>
 
-    <string name="register_label_register">REGISTER</string>
-    <string name="register_label_name">Name:</string>
-    <string name="register_hint_name">John</string>
-    <string name="register_label_last_name">Last Name:</string>
-    <string name="register_hint_last_name">Doe</string>
-    <string name="register_label_username">Username:</string>
-    <string name="register_hint_username">username</string>
-    <string name="register_label_password">Password</string>
-    <string name="register_hint_password">password</string>
-    <string name="register_label_date_of_birth">Date of Birth:</string>
-    <string name="register_hint_date_of_birth">DD/MM/YYYY</string>
-    <string name="register_label_gender">Gender:</string>
-    <string name="register_radio_male">Male</string>
-    <string name="register_radio_female">Female</string>
-    <string name="register_button_register">Register</string>
-    <string name="register_button_back">Back</string>
+    <!-- Register Activity -->
+    <string name="a_register_title_textView_text">REGISTER</string>
+    <string name="a_register_name_textView_text">Name:</string>
+    <string name="a_register_name_editText_hint">John</string>
+    <string name="a_register_lastName_textView_text">Last Name:</string>
+    <string name="a_register_lastName_editText_hint">Doe</string>
+    <string name="a_register_username_textView_text">Username:</string>
+    <string name="a_register_username_editText_hint">username</string>
+    <string name="a_register_password_textView_text">Password</string>
+    <string name="a_register_password_editText_hint">password</string>
+    <string name="a_register_dateOfBirth_textView_text">Date of Birth:</string>
+    <string name="a_register_dateOfBirth_editText_hint">DD/MM/YYYY</string>
+    <string name="a_register_gender_textView_text">Gender:</string>
+    <string name="a_register_male_radioButton_text">Male</string>
+    <string name="a_register_female_radioButton_text">Female</string>
+    <string name="a_register_register_button_text">Register</string>
+    <string name="a_register_back_button_text">Back</string>
 
-    <string name="menu_search">Search</string>
-    <string name="menu_profile">Profile</string>
-    <string name="menu_logout">Logout</string>
+    <!-- Flight Activity -->
+    <string name="a_flight_banner_imageView_contentDescription">Banner</string>
+    <string name="a_flight_flightNumberLabel_textView_text">Flight Number: </string>
+    <string name="a_flight_destinationLabel_textView_text">Destination: </string>
+    <string name="a_flight_scheduledAtLabel_textView_text">Scheduled At: </string>
+    <string name="a_flight_connectedFlightLabel_textView_text">Connected Flight: </string>
+    <string name="a_flight_planeModelLabel_textView_text">Plane Model: </string>
+    <string name="a_flight_gateLabel_textView_text">Gate: </string>
+    <string name="a_flight_terminalLabel_textView_text">Terminal: </string>
 
-    <string name="flight_flight_number_label">Flight Number: </string>
-    <string name="flight_destination_label">Destination: </string>
-    <string name="flight_scheduled_at_label">Scheduled At: </string>
-    <string name="flight_connected_label">Connected Flight: </string>
-    <string name="flight_plane_model_label">Plane Model: </string>
-    <string name="flight_gate_label">Gate: </string>
-    <string name="flight_terminal_label">Terminal: </string>
+    <!-- Profile Activity -->
+    <string name="a_profile_usernameLabel_textView_text">Username: </string>
+    <string name="a_profile_dateOfBirthLabel_textView_text">Date of Birth: </string>
+    <string name="a_profile_genderLabel_textView_text">Gender: </string>
+    <string name="a_profile_savedFlights_textView_text">Saved Flights</string>
 
-    <string name="profile_username_label">Username: </string>
-    <string name="profile_date_of_birth_label">Date of Birth: </string>
-    <string name="profile_gender_label">Gender: </string>
-    <string name="profile_saved_flights_label">Saved Flights</string>
+    <!-- Flight Fragment -->
+    <string name="f_flight_details_button_contentDescription">Details</string>
+    <string name="f_flight_banner_imageView_contentDescription">Banner</string>
+
+    <!-- Main Menu Bar -->
+    <string name="m_main_search_searchView_text">Search</string>
+    <string name="m_main_profile_menuItem_text">Profile</string>
+    <string name="m_main_logout_menuItem_text">Logout</string>
 
 </resources>

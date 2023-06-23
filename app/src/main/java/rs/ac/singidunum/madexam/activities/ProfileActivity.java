@@ -16,71 +16,91 @@ import java.util.List;
 import rs.ac.singidunum.madexam.R;
 import rs.ac.singidunum.madexam.adapters.FlightAdapter;
 import rs.ac.singidunum.madexam.api.FlightHandler;
-import rs.ac.singidunum.madexam.api.models.FlightModel;
-import rs.ac.singidunum.madexam.database.StarDatabase;
+import rs.ac.singidunum.madexam.api.models.Flight;
+import rs.ac.singidunum.madexam.database.UserFlightDatabase;
 import rs.ac.singidunum.madexam.database.UserDatabase;
-import rs.ac.singidunum.madexam.database.models.StarModel;
-import rs.ac.singidunum.madexam.database.models.UserModel;
+import rs.ac.singidunum.madexam.database.models.UserFlight;
+import rs.ac.singidunum.madexam.database.models.User;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    UserDatabase userDatabase = new UserDatabase(this);
-    StarDatabase starDatabase = new StarDatabase(this);
-    FlightHandler flightHandler = new FlightHandler();
-    FlightAdapter adapter = new FlightAdapter(this);
+    UserDatabase userDatabase;
+    UserFlightDatabase userFlightDatabase;
+    FlightHandler flightHandler;
+    FlightAdapter adapter;
+    SharedPreferences prefs;
+
     private void getSavedFlights() {
 
         AsyncTask task = new AsyncTask() {
             @Override
             protected Object doInBackground(Object[] objects) {
-
-                SharedPreferences prefs = getSharedPreferences("preferences", MODE_PRIVATE);
-
+                // Get the userId from preferences
                 int userId = prefs.getInt("userId", -1);
 
-                List<StarModel> stars = starDatabase.getStarsForUser(userId);
+                // Get the list of saved flight for the logged in user
+                List<UserFlight> userFlights = userFlightDatabase.getUserFlightForUser(userId);
 
+                // List of saved flight IDs
                 List<Integer> ids = new ArrayList<>();
 
-                for(StarModel star : stars) {
+                // Get the saved flight IDs
+                for(UserFlight star : userFlights) {
                     ids.add(star.getFlightId());
                 }
 
-                List<FlightModel> flights = flightHandler.getFlightsByIDs(ids);
+                // Get the flights from the API
+                List<Flight> flights = flightHandler.getFlightsByIDs(ids);
+                // Return the flights
                 return flights;
             }
 
             @Override
             protected void onPostExecute(Object o) {
-
-                List<FlightModel> flights = (List<FlightModel>)o;
+                // Convert the object to the list of flights
+                List<Flight> flights = (List<Flight>)o;
+                // Clear the adapter and add the new data
                 adapter.clear();
                 adapter.addData(flights);
             }
 
         };
 
+        // Execute the background task
         task.execute();
 
     }
 
     private void init() {
 
-        SharedPreferences prefs = getSharedPreferences("preferences", MODE_PRIVATE);
+        // Initialize references
+        userDatabase = new UserDatabase(this);
+        userFlightDatabase = new UserFlightDatabase(this);
+        flightHandler = new FlightHandler();
+        adapter = new FlightAdapter(this);
+        prefs = getSharedPreferences("preferences", MODE_PRIVATE);
 
+        // Get the userId
         int userId = prefs.getInt("userId", -1);
 
-        UserModel user = userDatabase.findUserByID(userId);
+        // Get the user from the database
+        User user = userDatabase.findUserByID(userId);
 
-        TextView usernameTextView = findViewById(R.id.profile_usernameData);
-        TextView dateOfBirthTextView = findViewById(R.id.profile_dateOfBirthData);
-        TextView genderTetView = findViewById(R.id.profile_genderData);
+        // Get view references
+        TextView usernameTextView = findViewById(R.id.a_profile_usernameData_textView);
+        TextView dateOfBirthTextView = findViewById(R.id.a_profile_dateOfBirthData_textView);
+        TextView genderTetView = findViewById(R.id.a_profile_genderData_textView);
 
-        RecyclerView recyclerView = findViewById(R.id.profile_flightRecycleView);
+        RecyclerView recyclerView = findViewById(R.id.a_profile_flights_recycleView);
+
+        // Set the ActionBar menu
+        getSupportActionBar().setTitle(user.getName() + " " + user.getLastName());
+
+        // Initialize the recycle view
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        getSupportActionBar().setTitle(user.getName() + " " + user.getLastName());
+        // Set user data into views
         usernameTextView.setText(user.getUsername());
         dateOfBirthTextView.setText(user.getDateOfBirth());
         genderTetView.setText(user.getGender());
@@ -91,15 +111,19 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        // Hide the activity bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // Initialize the activity
         init();
+        // Get saved flights
         getSavedFlights();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        // Register the back button click listener
         if(item.getItemId() == android.R.id.home) {
             finish();
             return true;
@@ -109,6 +133,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
+    // Called when the activity restarts
     @Override
     public void onRestart() {
         super.onRestart();

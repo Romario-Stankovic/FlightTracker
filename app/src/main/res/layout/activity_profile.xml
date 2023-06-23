@@ -20,13 +20,13 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/profile_usernameLabel"
+                    android:id="@+id/a_profile_usernameLabel_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/profile_username_label" />
+                    android:text="@string/a_profile_usernameLabel_textView_text" />
 
                 <TextView
-                    android:id="@+id/profile_usernameData"
+                    android:id="@+id/a_profile_usernameData_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp" />
@@ -37,13 +37,13 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/profile_dateOfBirthLabel"
+                    android:id="@+id/a_profile_dateOfBirthLabel_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/profile_date_of_birth_label" />
+                    android:text="@string/a_profile_dateOfBirthLabel_textView_text" />
 
                 <TextView
-                    android:id="@+id/profile_dateOfBirthData"
+                    android:id="@+id/a_profile_dateOfBirthData_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp" />
@@ -54,13 +54,13 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:id="@+id/profile_genderLabel"
+                    android:id="@+id/a_profile_genderLabel_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/profile_gender_label" />
+                    android:text="@string/a_profile_genderLabel_textView_text" />
 
                 <TextView
-                    android:id="@+id/profile_genderData"
+                    android:id="@+id/a_profile_genderData_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp" />
@@ -68,15 +68,15 @@
         </TableLayout>
 
         <TextView
-            android:id="@+id/profile_starredLabel"
+            android:id="@+id/a_profile_savedFlights_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/profile_saved_flights_label"
+            android:text="@string/a_profile_savedFlights_textView_text"
             android:textAlignment="center"
             android:textSize="20sp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/profile_flightRecycleView"
+            android:id="@+id/a_profile_flights_recycleView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

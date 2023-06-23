@@ -12,9 +12,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/flight_bannerImageView"
+            android:id="@+id/a_flight_banner_imageView"
             android:layout_width="match_parent"
             android:layout_height="235dp"
+            android:contentDescription="@string/a_flight_banner_imageView_contentDescription"
             app:srcCompat="@drawable/flight_placeholder" />
 
         <TableLayout
@@ -27,14 +28,14 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/flight_flightNumberLabel"
+                    android:id="@+id/a_flight_flightNumberLabel_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:text="@string/flight_flight_number_label" />
+                    android:text="@string/a_flight_flightNumberLabel_textView_text" />
 
                 <TextView
-                    android:id="@+id/flight_flightKeyTextView"
+                    android:id="@+id/a_flight_flightNumberData_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </TableRow>
@@ -44,14 +45,14 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/flight_destinationLabel"
+                    android:id="@+id/a_flight_destinationLabel_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:text="@string/flight_destination_label" />
+                    android:text="@string/a_flight_destinationLabel_textView_text" />
 
                 <TextView
-                    android:id="@+id/flight_destinationTextView"
+                    android:id="@+id/a_flight_destinationData_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </TableRow>
@@ -61,14 +62,14 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/flight_scheduledAtLabel"
+                    android:id="@+id/a_flight_scheduledAtLabel_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:text="@string/flight_scheduled_at_label" />
+                    android:text="@string/a_flight_scheduledAtLabel_textView_text" />
 
                 <TextView
-                    android:id="@+id/flight_scheduledAtTextView"
+                    android:id="@+id/a_flight_scheduledAtData_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </TableRow>
@@ -78,14 +79,14 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/flight_connectedFlightLabel"
+                    android:id="@+id/a_flight_connectedFlightLabel_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:text="@string/flight_connected_label" />
+                    android:text="@string/a_flight_connectedFlightLabel_textView_text" />
 
                 <TextView
-                    android:id="@+id/flight_connectedFlightTextView"
+                    android:id="@+id/a_flight_connectedFlightData_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -96,14 +97,14 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/flight_planeLabel"
+                    android:id="@+id/a_flight_planeModelLabel_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:text="@string/flight_plane_model_label" />
+                    android:text="@string/a_flight_planeModelLabel_textView_text" />
 
                 <TextView
-                    android:id="@+id/flight_planeTextView"
+                    android:id="@+id/a_flight_planeModelData_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </TableRow>
@@ -113,14 +114,14 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/flight_gateLabel"
+                    android:id="@+id/a_flight_gateLabel_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:text="@string/flight_gate_label" />
+                    android:text="@string/a_flight_gateLabel_textView_text" />
 
                 <TextView
-                    android:id="@+id/flight_gateTextView"
+                    android:id="@+id/a_flight_gateData_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </TableRow>
@@ -130,14 +131,14 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/flight_terminalLabel"
+                    android:id="@+id/a_flight_terminalLabel_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:text="@string/flight_terminal_label" />
+                    android:text="@string/a_flight_terminalLabel_textView_text" />
 
                 <TextView
-                    android:id="@+id/flight_terminalTextView"
+                    android:id="@+id/a_flight_terminalData_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </TableRow>
@@ -145,10 +146,11 @@
         </TableLayout>
 
         <ImageButton
-            android:id="@+id/flight_starButton"
+            android:id="@+id/a_flight_save_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:contentDescription="@string/a_flight_banner_imageView_contentDescription"
             app:srcCompat="@drawable/star_outlined" />
     </LinearLayout>
 

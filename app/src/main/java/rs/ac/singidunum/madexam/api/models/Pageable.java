@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pageable<T> implements Serializable {
+public class Pageable<T> {
 
     private List<T> content = new ArrayList<>();
 

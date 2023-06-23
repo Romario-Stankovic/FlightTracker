@@ -1,6 +1,5 @@
 package rs.ac.singidunum.madexam.api.models;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class FlightModel implements Serializable {
+public class Flight {
     private int id;
     private String flightKey;
     private String flightNumber;

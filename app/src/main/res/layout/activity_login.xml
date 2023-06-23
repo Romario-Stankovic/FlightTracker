@@ -21,10 +21,10 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/loginText"
+                android:id="@+id/a_login_title_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/login_label_login"
+                android:text="@string/a_login_title_textView_text"
                 android:textAlignment="center"
                 android:textSize="24sp" />
 
@@ -33,31 +33,33 @@
                 android:layout_height="32dp" />
 
             <TextView
-                android:id="@+id/usernameText"
+                android:id="@+id/a_login_username_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/login_label_username" />
+                android:text="@string/a_login_username_textView_text" />
 
             <EditText
-                android:id="@+id/usernameEditText"
+                android:id="@+id/a_login_username_editText"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
+                android:autofillHints="username"
                 android:ems="10"
-                android:hint="@string/login_hint_username"
+                android:hint="@string/a_login_username_editText_hint"
                 android:inputType="text" />
 
             <TextView
-                android:id="@+id/passwordText"
+                android:id="@+id/a_login_password_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/login_label_password" />
+                android:text="@string/a_login_password_textView_text" />
 
             <EditText
-                android:id="@+id/passwordEditText"
+                android:id="@+id/a_login_password_editText"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
+                android:autofillHints="password"
                 android:ems="10"
-                android:hint="@string/login_hint_password"
+                android:hint="@string/a_login_password_editText_hint"
                 android:inputType="textPassword" />
 
             <Space
@@ -65,18 +67,18 @@
                 android:layout_height="32dp" />
 
             <Button
-                android:id="@+id/loginButton"
+                android:id="@+id/a_login_login_button"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:text="@string/login_button_login" />
+                android:text="@string/a_login_login_button_text" />
 
             <Button
-                android:id="@+id/registerButton"
+                android:id="@+id/a_login_register_button"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:fadingEdge="horizontal"
-                android:text="@string/login_button_register" />
+                android:text="@string/a_login_register_button_text" />
 
         </LinearLayout>
 

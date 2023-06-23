@@ -14,27 +14,30 @@
         android:paddingBottom="5dp">
 
         <ImageView
-            android:id="@+id/iconImageView"
+            android:id="@+id/f_flight_banner_imageView"
             android:layout_width="97dp"
             android:layout_height="56dp"
+            android:contentDescription="@string/f_flight_banner_imageView_contentDescription"
             app:srcCompat="@drawable/flight_placeholder" />
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/flightNumberTextView"
+                android:id="@+id/f_flight_title_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/destinationTextView"
+                android:id="@+id/f_flight_date_textView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textStyle="italic" />
 
         </LinearLayout>
 
@@ -44,9 +47,10 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/detailsImageButton"
+                android:id="@+id/f_flight_details_button"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:contentDescription="@string/f_flight_details_button_contentDescription"
                 android:src="@drawable/details"
                 app:tint="?android:attr/textColorPrimary" />
 

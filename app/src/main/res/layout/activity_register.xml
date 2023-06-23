@@ -25,10 +25,10 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/registerText"
+                    android:id="@+id/a_register_title_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/register_label_register"
+                    android:text="@string/a_register_title_textView_text"
                     android:textAlignment="center"
                     android:textSize="24sp" />
 
@@ -37,103 +37,108 @@
                     android:layout_height="32dp" />
 
                 <TextView
-                    android:id="@+id/nameText"
+                    android:id="@+id/a_register_name_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/register_label_name" />
+                    android:text="@string/a_register_name_textView_text" />
 
                 <EditText
-                    android:id="@+id/nameEditText"
+                    android:id="@+id/a_register_name_editText"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:autofillHints="firstName"
                     android:ems="10"
-                    android:hint="@string/register_hint_name"
+                    android:hint="@string/a_register_name_editText_hint"
                     android:inputType="text" />
 
                 <TextView
-                    android:id="@+id/lastNameText"
+                    android:id="@+id/a_register_lastName_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/register_label_last_name" />
+                    android:text="@string/a_register_lastName_textView_text" />
 
                 <EditText
-                    android:id="@+id/lastNameEditText"
+                    android:id="@+id/a_register_lastName_editText"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:autofillHints="lastName"
                     android:ems="10"
-                    android:hint="@string/register_hint_last_name"
+                    android:hint="@string/a_register_lastName_editText_hint"
                     android:inputType="text" />
 
                 <TextView
-                    android:id="@+id/usernameText"
+                    android:id="@+id/a_register_username_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/register_label_username" />
+                    android:text="@string/a_register_username_textView_text" />
 
                 <EditText
-                    android:id="@+id/usernameEditText"
+                    android:id="@+id/a_register_username_editText"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:autofillHints="username"
                     android:ems="10"
-                    android:hint="@string/register_hint_username"
+                    android:hint="@string/a_register_username_editText_hint"
                     android:inputType="text" />
 
                 <TextView
-                    android:id="@+id/passwordText"
+                    android:id="@+id/a_register_password_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/register_label_password" />
+                    android:text="@string/a_register_password_textView_text" />
 
                 <EditText
-                    android:id="@+id/passwordEditText"
+                    android:id="@+id/a_register_password_editText"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:autofillHints="password"
                     android:ems="10"
-                    android:hint="@string/register_hint_password"
+                    android:hint="@string/a_register_password_editText_hint"
                     android:inputType="textPassword" />
 
                 <TextView
-                    android:id="@+id/dateOfBirthText"
+                    android:id="@+id/a_register_dateOfBirth_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/register_label_date_of_birth" />
+                    android:text="@string/a_register_dateOfBirth_textView_text" />
 
                 <EditText
-                    android:id="@+id/dateOfBirthEditText"
+                    android:id="@+id/a_register_dateOfBirth_editText"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:autofillHints="dateOfBirth"
                     android:clickable="false"
                     android:cursorVisible="false"
+                    android:ems="10"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
-                    android:ems="10"
-                    android:hint="@string/register_hint_date_of_birth"
+                    android:hint="@string/a_register_dateOfBirth_editText_hint"
                     android:inputType="date" />
 
                 <TextView
-                    android:id="@+id/genderText"
+                    android:id="@+id/a_register_gender_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/register_label_gender" />
+                    android:text="@string/a_register_gender_textView_text" />
 
                 <RadioGroup
-                    android:id="@+id/genderRadioGroup"
+                    android:id="@+id/a_register_gender_radioGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checkedButton="@id/maleRadioButton">
+                    android:checkedButton="@id/a_register_male_radioButton">
 
                     <RadioButton
-                        android:id="@+id/maleRadioButton"
+                        android:id="@+id/a_register_male_radioButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:checked="false"
-                        android:text="@string/register_radio_male" />
+                        android:text="@string/a_register_male_radioButton_text" />
 
                     <RadioButton
-                        android:id="@+id/femaleRadioButton"
+                        android:id="@+id/a_register_female_radioButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/register_radio_female" />
+                        android:text="@string/a_register_female_radioButton_text" />
                 </RadioGroup>
 
                 <Space
@@ -141,19 +146,19 @@
                     android:layout_height="32dp" />
 
                 <Button
-                    android:id="@+id/registerButton"
+                    android:id="@+id/a_register_register_button"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:fadingEdge="horizontal"
-                    android:text="@string/register_button_register" />
+                    android:text="@string/a_register_register_button_text" />
 
                 <Button
-                    android:id="@+id/backButton"
+                    android:id="@+id/a_register_back_button"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:text="@string/register_button_back" />
+                    android:text="@string/a_register_back_button_text" />
 
             </LinearLayout>
         </ScrollView>

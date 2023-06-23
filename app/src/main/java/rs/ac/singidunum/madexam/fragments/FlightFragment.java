@@ -18,6 +18,7 @@ public class FlightFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        // Create the fragment
         super.onCreate(savedInstanceState);
     }
 
@@ -25,6 +26,7 @@ public class FlightFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_flight, container, false);
+        // Return the view
         return view;
     }
 }

@@ -3,16 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/searchView"
+        android:id="@+id/m_main_search_searchView"
         android:icon="@drawable/search"
         android:iconTint="?android:attr/textColorPrimary"
-        android:title="@string/menu_search"
+        android:title="@string/m_main_search_searchView_text"
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always" />
     <item
-        android:id="@+id/profileMenuItem"
-        android:title="@string/menu_profile" />
+        android:id="@+id/m_main_profile_menuItem"
+        android:title="@string/m_main_profile_menuItem_text" />
     <item
-        android:id="@+id/logoutMenuItem"
-        android:title="@string/menu_logout" />
+        android:id="@+id/m_main_logout_menuItem"
+        android:title="@string/m_main_logout_menuItem_text" />
 </menu>

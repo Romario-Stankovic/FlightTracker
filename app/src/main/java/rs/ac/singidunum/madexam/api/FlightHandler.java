@@ -8,89 +8,101 @@ import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import rs.ac.singidunum.madexam.Environment;
-import rs.ac.singidunum.madexam.api.models.FlightModel;
+import rs.ac.singidunum.madexam.misc.Environment;
+import rs.ac.singidunum.madexam.api.models.Flight;
 import rs.ac.singidunum.madexam.api.models.Pageable;
 
+// Flight handler that creates API calls to the flight API
 public class FlightHandler extends Handler {
 
-    public Pageable<FlightModel> getUpcomingFlights(int page, int size) {
-
-        String url = Environment.FLIGHT_API_URL + "/api/flight?page=" + page + "&size=" + size;
-        Request request = new Request.Builder().url(url).build();
+    // Get all upcoming flights
+    public Pageable<Flight> getUpcomingFlights(int page, int size) {
 
         try {
+            // Request URL
+            String url = Environment.FLIGHT_API_URL + "/api/flight?page=" + page + "&size=" + size;
+            // The request
+            Request request = new Request.Builder().url(url).get().build();
+            // Response
             Response response = client.newCall(request).execute();
 
-            Pageable<FlightModel> result = mapper.readValue(response.body().string(), new TypeReference<Pageable<FlightModel>>() {});
-
-            return result;
+            // Map the response to a Pageable FlightModel and return the value
+            return mapper.readValue(response.body().string(), new TypeReference<Pageable<Flight>>() {});
 
         } catch (Exception e) {
-            e.printStackTrace();
+            // In case of an error, return null
             return null;
         }
 
     }
 
-    public Pageable<FlightModel> getUpcomingFlightsForDestination(String destination, int page, int size) {
+    // Get upcoming flights for a specific destination
+    public Pageable<Flight> getUpcomingFlightsForDestination(String destination, int page, int size) {
 
-        String url = Environment.FLIGHT_API_URL + "/api/flight/destination/" + destination + "?page=" + page + "&size=" + size;
-        Request request = new Request.Builder().url(url).build();
 
         try {
+            // Request URL
+            String url = Environment.FLIGHT_API_URL + "/api/flight/destination/" + destination + "?page=" + page + "&size=" + size;
+            // The request
+            Request request = new Request.Builder().url(url).get().build();
+            // The response
             Response response = client.newCall(request).execute();
 
-            Pageable<FlightModel> result = mapper.readValue(response.body().string(), new TypeReference<Pageable<FlightModel>>() {});
-
-            return result;
+            // Map the response to a Pageable FlightModel and return the value
+            return mapper.readValue(response.body().string(), new TypeReference<Pageable<Flight>>() {});
 
         } catch (Exception e) {
-            e.printStackTrace();
+            // In case of an error, return null
             return null;
         }
 
     }
 
-    public List<FlightModel> getFlightsByIDs(List<Integer> ids) {
+    // Get flights by their IDs
+    public List<Flight> getFlightsByIDs(List<Integer> ids) {
 
         try {
 
+            // Request URL
             String url = Environment.FLIGHT_API_URL + "/api/flight/list";
+            // Convert the Ids list to a json object
             String json = this.mapper.writeValueAsString(ids);
 
+            // Create a RequestBody
             RequestBody body = RequestBody.create(MediaType.parse("application/json"), json);
 
-            Request request = new Request.Builder().url(url)
-                    .post(body).build();
+            // The request
+            Request request = new Request.Builder().url(url).post(body).build();
 
+            // The response
             Response response = client.newCall(request).execute();
 
-            List<FlightModel> result = mapper.readValue(response.body().string(), new TypeReference<List<FlightModel>>() {});
-
-            return result;
+            // Map the response to a List of FlightModels and return it
+            return mapper.readValue(response.body().string(), new TypeReference<List<Flight>>() {});
 
         } catch (Exception e) {
+            // In case of an error, return null
             return null;
         }
 
     }
 
+    // Get a list of upcoming destinations
     public List<String> getAllDestinations() {
 
-        String url = Environment.FLIGHT_API_URL + "/api/flight/destination/all";
-        Request request = new Request.Builder().url(url).build();
-
         try {
-
+            // Request URL
+            String url = Environment.FLIGHT_API_URL + "/api/flight/destination/all";
+            // The request
+            Request request = new Request.Builder().url(url).get().build();
+            // The response
             Response response = client.newCall(request).execute();
 
-            List<String> result = mapper.readValue(response.body().string(), new TypeReference<List<String>>() {});
-
-            return result;
+            // Map the response to a List of strings and return it
+            return mapper.readValue(response.body().string(), new TypeReference<List<String>>() {});
 
         } catch (Exception e) {
-            e.printStackTrace();
+            // In case of an exception, return null
             return null;
         }
 

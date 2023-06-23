@@ -1,14 +1,12 @@
 package rs.ac.singidunum.madexam.database.models;
 
-import java.io.Serializable;
-
 import lombok.Getter;
 import lombok.Setter;
 
 
 @Getter
 @Setter
-public class UserModel implements Serializable {
+public class User {
     private int id;
     private String name;
     private String lastName;
