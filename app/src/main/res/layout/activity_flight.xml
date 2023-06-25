@@ -6,152 +6,161 @@
     android:layout_height="match_parent"
     tools:context=".activities.FlightActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        tools:layout_editor_absoluteY="411dp">
 
-        <ImageView
-            android:id="@+id/a_flight_banner_imageView"
-            android:layout_width="match_parent"
-            android:layout_height="235dp"
-            android:contentDescription="@string/a_flight_banner_imageView_contentDescription"
-            app:srcCompat="@drawable/flight_placeholder" />
-
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="15dp">
+            android:orientation="vertical">
 
-            <TableRow
+            <ImageView
+                android:id="@+id/a_flight_banner_imageView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/a_flight_banner_imageView_contentDescription"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/flight_placeholder" />
 
-                <TextView
-                    android:id="@+id/a_flight_flightNumberLabel_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="@string/a_flight_flightNumberLabel_textView_text" />
-
-                <TextView
-                    android:id="@+id/a_flight_flightNumberData_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </TableRow>
-
-            <TableRow
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp">
 
-                <TextView
-                    android:id="@+id/a_flight_destinationLabel_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="@string/a_flight_destinationLabel_textView_text" />
-
-                <TextView
-                    android:id="@+id/a_flight_destinationData_textView"
+                <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </TableRow>
+                    android:layout_height="match_parent">
 
-            <TableRow
+                    <TextView
+                        android:id="@+id/a_flight_flightNumberLabel_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/a_flight_flightNumberLabel_textView_text" />
+
+                    <TextView
+                        android:id="@+id/a_flight_flightNumberData_textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/a_flight_destinationLabel_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/a_flight_destinationLabel_textView_text" />
+
+                    <TextView
+                        android:id="@+id/a_flight_destinationData_textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/a_flight_scheduledAtLabel_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/a_flight_scheduledAtLabel_textView_text" />
+
+                    <TextView
+                        android:id="@+id/a_flight_scheduledAtData_textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/a_flight_connectedFlightLabel_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/a_flight_connectedFlightLabel_textView_text" />
+
+                    <TextView
+                        android:id="@+id/a_flight_connectedFlightData_textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/a_flight_planeModelLabel_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/a_flight_planeModelLabel_textView_text" />
+
+                    <TextView
+                        android:id="@+id/a_flight_planeModelData_textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/a_flight_gateLabel_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/a_flight_gateLabel_textView_text" />
+
+                    <TextView
+                        android:id="@+id/a_flight_gateData_textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/a_flight_terminalLabel_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/a_flight_terminalLabel_textView_text" />
+
+                    <TextView
+                        android:id="@+id/a_flight_terminalData_textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+
+            </TableLayout>
+
+            <ImageButton
+                android:id="@+id/a_flight_save_button"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/a_flight_banner_imageView_contentDescription"
+                app:srcCompat="@drawable/star_outlined" />
 
-                <TextView
-                    android:id="@+id/a_flight_scheduledAtLabel_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="@string/a_flight_scheduledAtLabel_textView_text" />
-
-                <TextView
-                    android:id="@+id/a_flight_scheduledAtData_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/a_flight_connectedFlightLabel_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="@string/a_flight_connectedFlightLabel_textView_text" />
-
-                <TextView
-                    android:id="@+id/a_flight_connectedFlightData_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/a_flight_planeModelLabel_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="@string/a_flight_planeModelLabel_textView_text" />
-
-                <TextView
-                    android:id="@+id/a_flight_planeModelData_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/a_flight_gateLabel_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="@string/a_flight_gateLabel_textView_text" />
-
-                <TextView
-                    android:id="@+id/a_flight_gateData_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/a_flight_terminalLabel_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="@string/a_flight_terminalLabel_textView_text" />
-
-                <TextView
-                    android:id="@+id/a_flight_terminalData_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </TableRow>
-
-        </TableLayout>
-
-        <ImageButton
-            android:id="@+id/a_flight_save_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:contentDescription="@string/a_flight_banner_imageView_contentDescription"
-            app:srcCompat="@drawable/star_outlined" />
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

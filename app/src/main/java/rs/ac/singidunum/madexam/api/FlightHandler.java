@@ -20,7 +20,7 @@ public class FlightHandler extends Handler {
 
         try {
             // Request URL
-            String url = Environment.FLIGHT_API_URL + "/api/flight?page=" + page + "&size=" + size;
+            String url = Environment.FLIGHT_API_URL + "/api/flight?page=" + page + "&size=" + size + "&sort=scheduledAt,asc";
             // The request
             Request request = new Request.Builder().url(url).get().build();
             // Response
