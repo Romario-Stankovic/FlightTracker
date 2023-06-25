@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
         prefs = getApplicationContext().getSharedPreferences("preferences", MODE_PRIVATE);
 
         // Get views
-        flightRecycleView = findViewById(R.id.a_main_fligths_recycleView);
+        flightRecycleView = findViewById(R.id.a_main_flights_recycleView);
 
         // Set recycle view adapter and layout manager
         flightRecycleView.setAdapter(adapter);

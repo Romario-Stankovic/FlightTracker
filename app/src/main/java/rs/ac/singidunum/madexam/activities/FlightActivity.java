@@ -52,7 +52,7 @@ public class FlightActivity extends AppCompatActivity {
         String flightKey = extras.getString("flightKey");
         String flightNumber = extras.getString("flightNumber");
         String destination = extras.getString("destination");
-        long scheduledAtMilis = extras.getLong("scheduledAtMilis");
+        long scheduledAtMillis = extras.getLong("scheduledAtMillis");
         String connectedFlight = extras.getString("connectedFlight");
         String plane = extras.getString("plane");
         String gate = extras.getString("gate");
@@ -76,7 +76,7 @@ public class FlightActivity extends AppCompatActivity {
         flightNumberTextView.setText(flightKey);
         destinationTextView.setText(destination);
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-        scheduledAtTextView.setText(dateFormat.format(new Date(scheduledAtMilis)));
+        scheduledAtTextView.setText(dateFormat.format(new Date(scheduledAtMillis)));
         connectedFlightTextView.setText(connectedFlight != null ? connectedFlight : "N/A");
         planeTextView.setText(plane);
         gateTextView.setText(gate);

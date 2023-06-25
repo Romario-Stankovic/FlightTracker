@@ -109,8 +109,8 @@ public class FlightAdapter extends RecyclerView.Adapter {
             extras.putString("flightKey", flight.getFlightKey());
             extras.putString("flightNumber", flight.getFlightNumber());
             extras.putString("destination", flight.getDestination());
-            extras.putLong("scheduledAtMilis", flight.getScheduledAt() != null ? flight.getScheduledAt().getTime() : 0);
-            extras.putLong("estimatedAtMilis", flight.getEstimatedAt() != null ? flight.getEstimatedAt().getTime() : 0);
+            extras.putLong("scheduledAtMillis", flight.getScheduledAt() != null ? flight.getScheduledAt().getTime() : 0);
+            extras.putLong("estimatedAtMillis", flight.getEstimatedAt() != null ? flight.getEstimatedAt().getTime() : 0);
             extras.putString("connectedType", flight.getConnectedType());
             extras.putString("connectedFlight", flight.getConnectedFlight());
             extras.putString("plane", flight.getPlane());
